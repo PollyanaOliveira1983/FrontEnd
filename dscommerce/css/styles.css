@@ -92,8 +92,8 @@ header {
 }
 
 .dsc-header-admin {
-  background-color: var(--dsc-color-bg-quaternary);
-  color: var(--dsc-color-font-tertiary);
+  background-color: var(--dsc-color-bg-secondary);
+  color: var(--dsc-color-font-primary);
 }
 
 nav {
