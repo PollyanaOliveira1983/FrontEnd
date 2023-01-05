@@ -86,10 +86,6 @@ header {
   padding: 0 20px;
 }
 
-.dsc-header-client {
-  background-color: var(--dsc-color-bg-secondary);
-  color: var(--dsc-color-font-primary);
-}
 
 .dsc-header-admin {
   background-color: var(--dsc-color-bg-quaternary);
@@ -202,18 +198,6 @@ nav a {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-
-.dsc-btn-blue {
-  border: none;
-  background-color: var(--dsc-color-btn-primary);
-  color: var(--dsc-color-btn-inverse);
-}
-
-.dsc-btn-white {
-  border: 1px solid var(--dsc-color-btn-primary);
-  background-color: var(--dsc-color-btn-inverse);
-  color: var(--dsc-color-btn-primary);
 }
 
 .dsc-btn-next-page {
