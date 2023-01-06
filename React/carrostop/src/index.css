@@ -1,19 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Roboto:ital,wght@0,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 :root {
   --ct-color-bg-primary: #fff;
-  --ct-color-bg-secondary: #F78B00;
+  --ct-color-bg-secondary: #f78b00;
   --ct-color-bg-tertiary: #00285f;
-  --ct-color-bg-quartenary: #EDEDED;
-  
-  --ct-color-font-primary: #000000;
-  --ct-color-font-secundary: #585858;
-  --ct-color-font-tertiary: #00285F;
+  --ct-color-bg-quaternary: #ededed;
+
+  --ct-color-font-primary: #000;
+  --ct-color-font-secondary: #585858;
+  --ct-color-font-tertiary: #00285f;
   --ct-color-font-quaternary: #fff;
   --ct-color-font-placeholder: #a7a7a7;
-
-
-
 }
 
 * {
@@ -39,4 +36,4 @@ body {
   max-width: 980px;
   margin: 0 auto;
 }
-
+Footer
