@@ -1,22 +1,23 @@
-
-#ct-catalog-section{
+#ct-catalog-section {
     padding: 40px 0;
-}
-
-.ct-catalog-main {
+  }
+  
+  .ct-catalog-main {
     padding: 0 10px;
-}
-
-.ct-search-bar-container {
+  }
+  
+  .ct-search-bar-container {
     margin-bottom: 40px;
-}
-
-.ct-catalog-cards-container {
-
-}
-
-@media(min-width: 576px){
+  }
+  
+  .ct-catalog-cards-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  }
+  
+  @media (min-width: 576px) {
     .ct-catalog-main {
-        padding: 0 20px;
+      padding: 0 20px;
     }
-}
+  }

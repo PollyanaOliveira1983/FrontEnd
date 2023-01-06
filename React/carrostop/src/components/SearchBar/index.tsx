@@ -6,5 +6,5 @@ export default function SearchBar() {
       <input className="ct-form-control" type="text" placeholder="Digite sua busca" />
       <button className="ct-search-bar-submit" type="submit">Buscar</button>
     </form>
-  )
+  );
 }
