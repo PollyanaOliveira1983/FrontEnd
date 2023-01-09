@@ -1,0 +1,37 @@
+.dr-car {
+    padding: 10px;
+    margin-bottom: 25px;
+    background-color: var(--ct-color-bg-primary);
+    border: 1px solid var(--ct-color-bg-secondary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dr-car img {
+    width: 260px;
+    height: 194px;
+  }
+  
+  .dr-car h3 {
+    font-size: 16px;
+    color: var(--ct-color-font-tertiary);
+    margin-top: 10px;
+  }
+  
+  @media (min-width: 1200px) {
+    .dr-car {
+      width: 746px;
+      height: 352px;
+    }
+    
+    .dr-car img {
+      width: 391px;
+      height: 292px;
+    }
+    
+    .dr-car h3 {
+      font-size: 20px;
+    }
+  }
