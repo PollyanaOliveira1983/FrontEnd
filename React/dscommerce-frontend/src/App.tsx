@@ -1,5 +1,5 @@
-import Catalog from './routes/Catalog';
 
+import Catalog from './routes/Catalog';
 
 export default function App() {
 
