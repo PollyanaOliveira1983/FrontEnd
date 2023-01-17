@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ClientHome from "./routes/ClientHome";
 import Catalog from "./routes/ClientHome/Catalog";
-import ProductDetails from "./routes/PrductDetails";
+import ProductDetails from "./routes/ProductDetails";
 
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/" element={<ClientHome />}>
         <Route path="index" element={<Catalog/>} />
           <Route path="catalog" element={<Catalog/>} />
-          <Route path="product-details" element={<ProductDetails/>} />
+          <Route path="product-details/:productId" element={<ProductDetails/>} />
         </Route>
       </Routes>
     </BrowserRouter>
