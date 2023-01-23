@@ -9,3 +9,21 @@ header {
 .site-name {
     font-size: 20px;
 }
+
+.header-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+}
+
+.menu-item {
+    margin-left: 20px;
+}
+
+.menu-active {
+    font-weight: 700;
+}
