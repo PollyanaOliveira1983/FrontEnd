@@ -1,0 +1,67 @@
+.content {
+    width: 100%;
+    max-width: 1251px;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+.card {
+    margin-top: 55px;
+    background-color: var(--color-bg-card-primary-section);
+    border-radius: 16px;
+    width: 1251px;
+    height: 270px;
+    display: flex;
+    align-items: center;
+}
+
+.card-content {
+    padding-left: 30px;
+}
+
+.card-content h2 {
+    font-size: 38px;
+    font-weight: 500;
+    color: var( --color-font-secondy);
+    padding-bottom: 12px;
+    line-height: 46px;
+}
+
+.card-content input {
+    width: 298px;
+    height: 40px;
+    color: var(--color-font-fifth);
+    font-size: 16px;
+    padding-left: 17px;
+    border-radius: 4px;
+    border: 1px solid var( --color-bg-bord-card);
+}
+
+.card-content input:focus {
+    outline: none;
+}
+
+.card-content input::placeholder {
+    color: var(--gapi-color-font-quaternary);
+}
+
+.card-content button {
+    background-color: var(--color-bg-button);
+    color: var(--color-font-primary);
+    font-size: 16px;
+    margin-top: 24px;
+    width: 101px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-top: 64px;
+    font-size: 38px;
+    font-weight: 500;
+}

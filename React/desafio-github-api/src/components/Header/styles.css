@@ -1,0 +1,12 @@
+header {
+    height: 62px;
+    background-color: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-font-primary);
+}
