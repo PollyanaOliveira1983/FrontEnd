@@ -5,26 +5,17 @@ import { findProduct } from "./data";
 function App() {
 
   console.log("PASSOU NO AP");
-  //forma errada
-  //let productId = 1;
-  //let prod = findProduct(productId);
-
-  //forma correta
   const [productId, setProductId] = useState(1);
   const [prod, setProd] = useState<any>();
 
   useEffect(() => {
     console.log("Passou no useEffect")
     setProd(findProduct(productId));
-  }, []);
+  }, [productId]);
 
   function handleClick(){
     console.log("PASSOU NO handleClick");
-    //productId = 2;
-    //prod = findProduct(productId);
-
-    //forma correta
-    
+    setProductId(2); 
   }
 
   return (
