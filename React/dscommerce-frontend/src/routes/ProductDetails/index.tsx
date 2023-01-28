@@ -3,7 +3,7 @@ import ButtonInverse from "../../components/ButtonInverse";
 import ButtonPrimary from "../../components/ButtonPrimary";
 import ProductDetailsCard from "../../components/ProductDetailsCard";
 import * as productService from "../../../src/services/product-service";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ProductDTO } from "../../models/product";
 
@@ -11,6 +11,8 @@ import { ProductDTO } from "../../models/product";
 export default function ProductDetails() {
   
   const params = useParams();
+
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState<ProductDTO>();
 
@@ -20,13 +22,16 @@ export default function ProductDetails() {
         console.log(response.data);
         setProduct(response.data);
       })
+      .catch(() => {
+        navigate("/");
+      });
   }, []);
   
   return (
     <main>
       <section id="product-details-section" className="dsc-container">
         {
-          product && 
+          product &&
           <ProductDetailsCard product={product} />
         }
        
