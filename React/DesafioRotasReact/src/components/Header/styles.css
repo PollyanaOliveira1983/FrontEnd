@@ -1,0 +1,20 @@
+header {
+  height: 70px;
+  font-size: 16px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-font-secondary);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-home img {
+  width: 30px;
+  height: 28.73px;
+}

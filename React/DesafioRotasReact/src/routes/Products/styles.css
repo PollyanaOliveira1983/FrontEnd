@@ -1,0 +1,7 @@
+.container-nav {
+  padding-left: 20px;
+  background-color: var(--color-bg-tertiary);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
