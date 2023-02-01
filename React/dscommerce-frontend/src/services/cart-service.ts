@@ -39,3 +39,16 @@ export function increaseItem(productId: number) {
     }
 
 }
+
+export function decreaseItem(productId: number) {
+    const cart = cartRepository.get();
+    const item = cart.items.find(x => x.productId === productId);
+    if(item){
+        item.quantity--;
+        if(item.quantity < 1) {
+            cart.items = cart.items.filter(x => x.productId !== productId);
+        }
+        cartRepository.save(cart);
+    }
+
+}
