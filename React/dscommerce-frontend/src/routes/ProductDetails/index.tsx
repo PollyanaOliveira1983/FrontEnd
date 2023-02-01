@@ -17,6 +17,8 @@ export default function ProductDetails() {
 
   const [product, setProduct] = useState<ProductDTO>();
 
+  
+
   useEffect(() => {
     productService.findById(Number(params.productId))
       .then(response => {
