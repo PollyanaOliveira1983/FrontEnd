@@ -31,7 +31,7 @@ export default function ProductDetails() {
   function handleByClick(){
     if (product) {
       cartService.addProduct(product);
-      navigate("/cart");
+      navigate("/cart");  
     }
   }
 
