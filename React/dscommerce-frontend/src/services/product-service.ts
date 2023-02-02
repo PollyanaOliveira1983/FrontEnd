@@ -1,7 +1,12 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { BASE_URL } from "../utils/system";
 
 export function findAll() {
+
+    const config : AxiosRequestConfig = {
+        
+    }
+    
     return axios.get(`${BASE_URL}/products?size=12`);
 }
 
