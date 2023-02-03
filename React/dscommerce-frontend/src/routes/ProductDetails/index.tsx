@@ -5,8 +5,9 @@ import ProductDetailsCard from "../../components/ProductDetailsCard";
 import * as productService from "../../../src/services/product-service";
 import * as cartService from "../../../src/services/cart-service";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductDTO } from "../../models/product";
+import { ContextCartCount } from "../../utils/context-cart";
 
 
 export default function ProductDetails() {
@@ -15,6 +16,8 @@ export default function ProductDetails() {
 
   const navigate = useNavigate();
 
+  const { setContextCartCount} = useContext(ContextCartCount)
+
   const [product, setProduct] = useState<ProductDTO>();
 
   
@@ -22,7 +25,6 @@ export default function ProductDetails() {
   useEffect(() => {
     productService.findById(Number(params.productId))
       .then(response => {
-        console.log(response.data);
         setProduct(response.data);
       })
       .catch(() => {
@@ -33,6 +35,7 @@ export default function ProductDetails() {
   function handleByClick(){
     if (product) {
       cartService.addProduct(product);
+      setContextCartCount(cartService.getCart().items.length);
       navigate("/cart");  
     }
   }
