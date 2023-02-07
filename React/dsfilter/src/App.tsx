@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState } from "react";
+import Header from "./components/Header";
+import ListingBody from "./components/ListingBody";
+import { ContextNumberCount } from "./util/utils/context-number";
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [contextNumberCount, setContextNumberCount] = useState<number>(0);
 
   return (
-    <h1>Desafio</h1>
-  )
+    <ContextNumberCount.Provider
+      value={{ contextNumberCount, setContextNumberCount }}
+    >
+      <Header />
+      <ListingBody />
+    </ContextNumberCount.Provider>
+  );
 }
 
 export default App

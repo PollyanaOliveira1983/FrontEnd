@@ -35,5 +35,6 @@ body {
 .ct-container {
   width: 100%;
   max-width: 1200px;
+  height: 70px;
   margin: 0 auto;
 }

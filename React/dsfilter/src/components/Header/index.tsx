@@ -6,7 +6,7 @@ export default function Header(){
 
         <header>
             <div className="dr-container">
-                <h1>DS Filter</h1>
+                <h1>DSFilter</h1>
             </div>
         </header>
     );

@@ -1,0 +1,28 @@
+.card-filter-dsfilter {
+    background-color: var(--ct-color-bg-primary);
+    width: 960px;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .card-filter-dsfilter input {
+    margin-bottom: 20px;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--ct-color-font-quartenary);
+  }
+  
+  .card-filter-dsfilter input:focus {
+    outline: 1px solid var(--ct-color-font-quartenary);
+  }
+  
+  .card-filter-dsfilter input::placeholder {
+    font-size: 16px;
+    color: var(--ct-color-font-quartenary);
+    padding-left: 10px;
+  }
+  

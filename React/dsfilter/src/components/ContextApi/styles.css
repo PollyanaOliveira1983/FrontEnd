@@ -1,0 +1,30 @@
+.header-dsfilter {
+    height: 70px;
+    background-color: var(--ct-color-bg-secondary);
+    margin-bottom: 20px;
+}
+
+.nav-dsfilter {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ct-color-font-primary);
+}
+
+.nav-dsfilter h1 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.nav-dsfilter p {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+@media (max-width: 960px) {
+    .container-header-960 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

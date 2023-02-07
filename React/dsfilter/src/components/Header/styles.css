@@ -1,0 +1,16 @@
+header {
+    padding: 20px;
+    background-color: var(--ct-color-bg-secondary);
+    height: 70px;
+    display: flex;
+    align-items: center;    
+}
+
+header h1 {
+    color: var(--ct-color-font-primary);
+    font-size: 20px;
+    height: 700;
+   
+    
+}
+
