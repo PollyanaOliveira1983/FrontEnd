@@ -1,25 +1,32 @@
-import { useState } from 'react';
-import { CredentialsDTO } from '../../../models/auth';
-import { loginRequest } from '../../../services/auth-service';
-import './styles.css';
+import { useState } from "react";
+import { CredentialsDTO } from "../../../models/auth";
+import "./styles.css";
+import * as authService from "../../../services/auth-service";
 
 export default function Login() {
-  
-    const [formData, setFormData] = useState<CredentialsDTO> ({
-        username: '',
-        password: ''
-    })
+    
+  const [formData, setFormData] = useState<CredentialsDTO>({
+    username: "",
+    password: "",
+  });
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    loginRequest(formData);
+    authService
+      .loginRequest(formData)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log("Error no login", error);
+      });
   }
 
   function handleInputChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    setFormData({...formData, [name]: value});
-  }    
+    setFormData({ ...formData, [name]: value });
+  }
 
   return (
     <main>
@@ -30,7 +37,7 @@ export default function Login() {
             <div className="dsc-form-controls-container">
               <div>
                 <input
-                  name="username"  
+                  name="username"
                   value={formData.username}
                   className="dsc-form-control"
                   type="text"
