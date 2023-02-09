@@ -17,15 +17,13 @@ export default function Login() {
         authService.saveAcessToken(response.data.access_token)
         console.log(response.data);
       })
-      .catch(error => {
-        console.log("Erro no login ", error);
-      })
+    
   }
 
   function handleInputChange(event: any) {
     const value = event.target.value;
     const name = event.target.name;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value});
   }
 
   return (
