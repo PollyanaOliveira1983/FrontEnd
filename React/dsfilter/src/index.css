@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-  --ct-color-bg-primary: #fff;
-  --ct-color-bg-secondary: #55BC04;
-  --ct-color-bg-tertiary: #C8C8C8;
+  --ds-color-bg-primary: #C2C2C2;
+  --ds-color-bg-secondary: #FFFFFF;
+  --ds-color-bg-tertiary: #55BC04;
 
-  --ct-color-font-primary: #fff;
-  --ct-color-font-secondary: #55BC04;
-  --ct-color-font-tertiary: #6F6F6F;
-  --ct-color-font-quartenary: #C2C2C2;
+  --ds-color-text-primary: #FFFFFF;
+  --ds-color-text-secondary: #C2C2C2;
+  --ds-color-text-tertiary: #55BC04;
+  --ds-color-text-quaternary: #6F6F6F;
 
-  --ct-color-border: #55BC04;
-
+  --ds-color-border-primary: #C2C2C2;
+  --ds-color-border-secondary: #55BC04;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
+  font-family: Roboto, Arial, monospace;
 }
 
 a,
@@ -29,12 +29,11 @@ a:hover {
 
 html,
 body {
-  background-color: var(--ct-color-bg-primary);
+  background-color: var(--ds-color-bg-primary);
 }
 
-.ct-container {
+.ds-container {
   width: 100%;
-  max-width: 1200px;
-  height: 70px;
+  max-width: 960px;
   margin: 0 auto;
 }

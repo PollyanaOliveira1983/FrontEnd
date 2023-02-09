@@ -1,16 +1,21 @@
 header {
-    padding: 20px;
-    background-color: var(--ct-color-bg-secondary);
+    padding: 25px;
+    background-color: var(--ds-color-bg-tertiary);
     height: 70px;
+}
+
+nav {
     display: flex;
-    align-items: center;    
+    align-items: center;
+    justify-content: space-between;
+    color: var(--ds-color-text-primary);
+    font-weight: 700;
 }
 
-header h1 {
-    color: var(--ct-color-font-primary);
+nav h1 {
     font-size: 20px;
-    height: 700;
-   
-    
 }
 
+nav p {
+    font-size: 12px;
+}

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextNumberCount } from '../../util/utils/context-number';
+import { ContextNumberCount } from '../../utils/utill/context-number';
 import './styles.css';
 
 export default function CreateContext() {

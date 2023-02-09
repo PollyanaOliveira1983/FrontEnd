@@ -1,21 +1,20 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import ListingBody from "./components/ListingBody";
-import { ContextNumberCount } from "./util/utils/context-number";
+import { findByPrice } from "./services/produtos-service";
+import { ContextListCount } from "./utils/context-listing";
 
-
-
-function App() {
-  const [contextNumberCount, setContextNumberCount] = useState<number>(0);
+export default function App() {
+  const [contextListCount, setContextListCount] = useState<number>(
+    findByPrice(0, Number.MAX_VALUE).length
+  );
 
   return (
-    <ContextNumberCount.Provider
-      value={{ contextNumberCount, setContextNumberCount }}
+    <ContextListCount.Provider
+      value={{ contextListCount, setContextListCount }}
     >
       <Header />
       <ListingBody />
-    </ContextNumberCount.Provider>
+    </ContextListCount.Provider>
   );
 }
-
-export default App

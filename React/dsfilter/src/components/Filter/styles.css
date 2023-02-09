@@ -1,0 +1,32 @@
+.ds-filter-card {
+    background-color: var(--ds-color-bg-secondary);
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--ds-color-border-primary);
+    padding: 20px;
+}
+
+#filter-frm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#filter-frm input {
+    height: 40px;
+    max-width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--ds-color-border-primary);
+    outline: none;
+}
+
+#filter-frm input::placeholder {
+    color: var(--ds-color-text-secondary);
+}
+
+#filter-frm input[type="submit"] {
+    background-color: var(--ds-color-bg-tertiary);
+    color: var(--ds-color-text-primary);
+}

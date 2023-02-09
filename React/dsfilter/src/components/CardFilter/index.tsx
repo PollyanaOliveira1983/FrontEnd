@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import FilterButton from '../FilterButton';
 import './styles.css';
-import { FilterProps, FormData } from '../../util';
+import { FilterProps, FormData } from '../../utils';
 
 export default function CardFilter({ onFilter }: FilterProps) {
   const [formData, setFormData] = useState<FormData>({

@@ -1,0 +1,29 @@
+.ds-listing-card {
+    background-color: var(--ds-color-bg-secondary);
+    min-height: 70px;
+    border-radius: 5px;
+    border: 1px solid var(--ds-color-border-primary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dsc-list-item {
+    width: 100%;
+    border: 1px solid var(--ds-color-border-secondary);
+    min-height: 50px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.ds-item-title {
+    font-size: 12px;
+    color: var(--ds-color-text-quaternary);
+}
+
+.ds-item-price {
+    font-size: 16px;
+    color: var(--ds-color-text-tertiary);
+    font-weight: 700;
+}

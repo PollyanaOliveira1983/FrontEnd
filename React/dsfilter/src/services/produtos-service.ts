@@ -1,4 +1,4 @@
-import { ProductDTO } from "../util";
+import { ProductDTO } from "../models/product";
 
 export function findByPrice(min: number, max: number): ProductDTO[] {
   return products

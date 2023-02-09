@@ -1,51 +1,25 @@
-import React, { useContext } from 'react';
-import * as productService from '../../services/produtos-service';
-import { ProductDTO, QueryParams } from '../../util';
-import { ContextNumberCount } from '../../util/utils/context-number';
-import CardFilter from '../CardFilter';
-import CardListing from '../CardListing';
-import './styles.css';
+import { useContext, useState } from "react";
+import { ProductDTO } from "../../models/product";
+import { findByPrice } from "../../services/produtos-service";
+import { ContextListCount } from "../../utils/context-listing";
+import Filter from "../Filter";
+import Listing from "../Listing";
+import "./styles.css";
 
 export default function ListingBody() {
-  const { contextNumberCount, setContextNumberCount } =
-    useContext(ContextNumberCount);
+    const [products, setProducts] = useState<ProductDTO[]>(findByPrice(0, Number.MAX_VALUE));
+    const { setContextListCount } = useContext(ContextListCount);
 
-  const [products, setProducts] = React.useState<ProductDTO[]>([]);
+    function handleFilter(min: number, max: number) {
+        const result = findByPrice(min, max);
+        setProducts(result);
+        setContextListCount(result.length);
+    };
 
-  const [queryParams, setQueryParams] = React.useState<QueryParams>({
-    minPrice: 0,
-    maxPrice: Number.MAX_VALUE,
-  });
-
-  React.useEffect(() => {
-    const loadProducts: ProductDTO[] = productService.findAll();
-    setProducts(loadProducts);
-
-    if (queryParams.minPrice !== 0 || queryParams.maxPrice !== 0) {
-      const filteredProducts: ProductDTO[] = productService.findByPrice(
-        queryParams.minPrice,
-        queryParams.maxPrice,
-      );
-      setProducts(filteredProducts);
-
-      setContextNumberCount(
-        productService.findByPrice(queryParams.minPrice, queryParams.maxPrice)
-          .length,
-      );
-    }
-  }, [setProducts, queryParams.minPrice, queryParams.maxPrice]);
-
-  const handleOnFilter = (minPrice: number, maxPrice: number) => {
-    setQueryParams({ ...queryParams, minPrice, maxPrice });
-  };
-
-  return (
-    <main className="container-body-960">
-      <CardFilter onFilter={handleOnFilter} />
-
-      {products.map((product) => (
-        <CardListing key={product.id} product={product} />
-      ))}
-    </main>
-  );
+    return (
+        <main>
+            <Filter onFilter={handleFilter} />
+            <Listing products={products} />
+        </main>
+    );
 }
