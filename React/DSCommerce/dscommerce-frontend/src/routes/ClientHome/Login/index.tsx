@@ -12,14 +12,14 @@ export default function Login() {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    authService
-      .loginRequest(formData)
-      .then((response) => {
+    authService.loginRequest(formData)
+      .then(response => {
+        authService.saveAcessToken(response.data.access_token)
         console.log(response.data);
       })
-      .catch((error) => {
-        console.log("Error no login", error);
-      });
+      .catch(error => {
+        console.log("Erro no login ", error);
+      })
   }
 
   function handleInputChange(event: any) {
