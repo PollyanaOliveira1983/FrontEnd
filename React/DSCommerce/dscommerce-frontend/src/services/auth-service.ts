@@ -13,8 +13,6 @@ export function loginRequest(loginData: CredentialsDTO) {
     
     const requestBody = QueryString.stringify({...loginData, grant_type: "password"});
 
-    console.log(requestBody);
-
     const config : AxiosRequestConfig = {
         method: "POST ",
         url: "/oauth/token",

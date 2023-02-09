@@ -2,7 +2,9 @@ package com.devsuperior.dscommerce.services.exceptions;
 
 public class ForbiddenException extends RuntimeException {
 
-    public ForbiddenException(String msg) {
+    private static final long serialVersionUID = 1L;
+
+	public ForbiddenException(String msg) {
         super(msg);
     }
 }
