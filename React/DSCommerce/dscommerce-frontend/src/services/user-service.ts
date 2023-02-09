@@ -6,7 +6,8 @@ export function findMe() {
 
     const headers = {
 
-        Authorization: "Bearer " + authService.getAcessToken()
+        Authorization: "Bearer " + authService.getAccessToken()
     }
+    console.log(headers);
     return requestBackend({url: `/users/me`, headers});
 }

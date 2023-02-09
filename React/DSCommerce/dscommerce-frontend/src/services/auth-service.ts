@@ -27,10 +27,10 @@ export function logout() {
     accessTokenRepository.remove();
 }
 
-export function saveAcessToken(token : string) {
+export function saveAccessToken(token : string) {
     accessTokenRepository.save(token);
 }
 
-export function getAcessToken() {
+export function getAccessToken() {
     return accessTokenRepository.get();
 }
