@@ -15,6 +15,7 @@ import { AccessTokenPayloadDTO } from "./models/auth";
 import { ContextToken } from "./utils/context-token";
 import * as authService from "./services/auth-service";
 import * as cartService from "./services/cart-service";
+import Confirmation from "./routes/ClientHome/Confirmation";
 
 export default function App() {
   const [contextCartCount, setContextCartCount] = useState<number>(0);
@@ -50,6 +51,10 @@ export default function App() {
               />
               <Route path="cart" element={<Cart />} />
               <Route path="login" element={<Login />} />
+              <Route
+                path="confirmation/:orderId"
+                element={<Confirmation />}
+              />
             </Route>
             <Route
               path="/admin/"
