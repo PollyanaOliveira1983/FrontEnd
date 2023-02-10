@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import { requestBackend } from "../utils/requests";
+import { requestBackend } from "./requests";
 
 export function findMe() {
 
