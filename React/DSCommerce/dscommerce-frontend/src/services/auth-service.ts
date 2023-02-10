@@ -49,3 +49,12 @@ export function getAccessTokenPayload(): AccessTokenPayloadDTO | undefined {
     return undefined;
   }
 }
+
+export function isAuthenticated(): boolean {
+  let tokenPayload = getAccessTokenPayload();
+  if(tokenPayload && tokenPayload.exp * 1000 > Date.now()) {
+    return true;
+  }
+  
+  return false;
+}
