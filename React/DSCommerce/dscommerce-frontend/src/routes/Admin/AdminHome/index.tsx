@@ -3,7 +3,6 @@ import { UserDTO } from "../../../models/user";
 import "./styles.css";
 import * as userService from "../../../services/user-service";
 
-
 export default function AdminHome() {
   
   const [user, setUser] = useState<UserDTO>();
@@ -14,9 +13,7 @@ export default function AdminHome() {
         setUser(response.data)
         console.log(response.data)
     })
-    .catch(error => {
-        console.log("Error ", error)
-    })
+    
   }, [])
 
   return (
