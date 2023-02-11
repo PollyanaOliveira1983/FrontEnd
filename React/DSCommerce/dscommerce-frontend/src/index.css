@@ -395,3 +395,7 @@ nav a {
   color: var(--dsc-color-font-primary);
   margin-bottom: 20px;
 }
+
+.dsc-dialog-btn-container{
+  width: 100%;
+}
