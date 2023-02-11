@@ -7,6 +7,7 @@ import { ProductDTO } from "../../../models/product";
 import SearchBar from "../../../components/SearchBar";
 import ButtonNextPage from "../../../components/ButtonNextPage";
 import DialogInfo from "../../../components/DialogInfo";
+import DialogConfirmation from "../../../components/DialogConfirmation";
 
 type QueryParams = {
   page: number;
@@ -19,6 +20,12 @@ export default function ProductListing() {
     visible: false,
     message: "Operação com sucesso!",
   });
+
+  const [dialogConfirmationData, setdialogConfirmationData] = useState({
+    visible: false,
+    message: "Tem certeza?",
+  });
+
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
 
@@ -53,8 +60,14 @@ export default function ProductListing() {
   }
 
   function handleDeleteClick(){
-    setdialogInfoData({...dialogInfoData, visible: true});
+    setdialogConfirmationData({...dialogConfirmationData, visible: true});
   }
+
+  function handleDialogConfirmationAnswer(answer: boolean) {
+    console.log("Resposta", answer);
+    setdialogConfirmationData({...dialogConfirmationData, visible: false});
+  }
+
   return (
     <main>
       <section id="product-listing-section" className="dsc-container">
@@ -121,6 +134,14 @@ export default function ProductListing() {
         <DialogInfo 
             message={dialogInfoData.message}
             onDialogClose={handleDialogInfoClose}
+        />
+      }     
+
+      {
+        dialogConfirmationData.visible && 
+        <DialogConfirmation
+            message={dialogConfirmationData.message}
+            onDialogAnswer={handleDialogConfirmationAnswer}
         />
       }      
     </main>
