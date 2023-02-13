@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { CredentialsDTO } from "../../../models/auth";
+import  * as forms from "../../../utils/forms";
 import "./styles.css";
 import * as authService from "../../../services/auth-service";
 import { useNavigate } from "react-router-dom";
@@ -49,9 +49,7 @@ export default function Login() {
   }
 
   function handleInputChange(event: any) {
-    const value = event.target.value;
-    const name = event.target.name;
-    setFormData({...formData, [name]: {...formData[name], value:value}});
+    setFormData(forms.update(formData, event.target.name, event.target.value));
   }
 
   return (
