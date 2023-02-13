@@ -40,3 +40,7 @@ export function dirtyAndValidate(inputs : any, name : string) {
   const dataDirty = toDirty(inputs, name);
   return validate(dataDirty, name);
 }
+
+export function hasAnyInvalid(formDataValidated: any) {
+  throw new Error('Function not implemented.');
+}
