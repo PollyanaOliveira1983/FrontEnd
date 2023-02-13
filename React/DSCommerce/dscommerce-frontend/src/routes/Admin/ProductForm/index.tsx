@@ -50,14 +50,12 @@ export default function ProductForm() {
   }, []);
 
   function handleInputChange(event: any) {
-    const dataUpdated = forms.update(formData, event.target.name, event.target.value);
-    const dataValidated = forms.validate(dataUpdated, event.target.name);
-    setFormData(dataUpdated);
+    const result = forms.updateAndValidate(formData, event.target.name, event.target.value);
+    setFormData(result);
   }
 
   function handleTurnDirty(name: string) {
-    const newFormData = forms.toDirty(formData, name);
-    setFormData(newFormData);
+    setFormData(forms.toDirty(formData, name));
   }
 
   return (
