@@ -4,6 +4,7 @@ import FormInput from "../../../components/FormInput";
 import "./styles.css";
 import * as forms from "../../../utils/forms";
 import * as productService from "../../../services/product-service";
+import FormTextArea from "../../../components/FormTextArea";
 
 export default function ProductForm() {
 
@@ -19,9 +20,9 @@ export default function ProductForm() {
       type: "text",
       placeholder: "Nome",
       validation: function(value : string) {
-        return value.length >= 3 && value.length <= 80;
+        return /^.{10,}$/.test(value);
       },
-      message: "Favor informar um nome de 3 a 80 caracteres."
+      message: "A descrição deve ter pelo meos 10 caracteres."
     },
     price: {
       value: "",
@@ -41,6 +42,18 @@ export default function ProductForm() {
       type: "text",
       placeholder: "Imagem",
     },
+    description: {
+      value: "",
+      id: "description",
+      name: "description",
+      type: "text",
+      placeholder: "Descrição",
+      validation: function(value : string) {
+        return value.length >= 3 && value.length <= 80;
+      },
+      message: "Favor informar um nome de 3 a 80 caracteres."
+    },
+
   });
 
   useEffect(() => {
@@ -71,7 +84,7 @@ export default function ProductForm() {
             <div className="dsc-form-controls-container">
               <div>
                 <FormInput
-                  {...formData.username}
+                  {...formData.name}
                   className="dsc-form-control"
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
@@ -98,6 +111,17 @@ export default function ProductForm() {
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
                 />
+              </div>
+              <div>
+                <FormTextArea
+                  {...formData.description}
+                  className="dsc-form-control dsc-textarea"
+                  onTurnDirty={handleTurnDirty}
+                  onChange={handleInputChange}
+                />
+                <div className="dsc-form-error">
+                  {formData.description.message}
+                </div>
               </div>
             </div>
 
