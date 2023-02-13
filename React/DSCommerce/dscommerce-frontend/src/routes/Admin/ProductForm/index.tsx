@@ -4,13 +4,17 @@ import FormInput from "../../../components/FormInput";
 import "./styles.css";
 import * as forms from "../../../utils/forms";
 import * as productService from "../../../services/product-service";
+import * as categoryService from "../../../services/category-service";
 import FormTextArea from "../../../components/FormTextArea";
+import Select from "react-select";
+import { CategoryDTO } from "../../../models/category";
 
 export default function ProductForm() {
-
   const params = useParams();
 
-  const isEditing = params.productId !== 'create';
+  const isEditing = params.productId !== "create";
+
+  const [categories, setCategories] = useState<CategoryDTO[]>([]);
 
   const [formData, setFormData] = useState<any>({
     name: {
@@ -19,10 +23,10 @@ export default function ProductForm() {
       name: "name",
       type: "text",
       placeholder: "Nome",
-      validation: function(value : string) {
+      validation: function (value: string) {
         return /^.{10,}$/.test(value);
       },
-      message: "A descrição deve ter pelo meos 10 caracteres."
+      message: "A descrição deve ter pelo meos 10 caracteres.",
     },
     price: {
       value: "",
@@ -30,10 +34,10 @@ export default function ProductForm() {
       name: "price",
       type: "number",
       placeholder: "Preço",
-      validation: function(value : any) {
+      validation: function (value: any) {
         return Number(value) > 0;
       },
-      message: "Favor informar um valor positivo."
+      message: "Favor informar um valor positivo.",
     },
     imgUrl: {
       value: "",
@@ -48,32 +52,47 @@ export default function ProductForm() {
       name: "description",
       type: "text",
       placeholder: "Descrição",
-      validation: function(value : string) {
+      validation: function (value: string) {
         return value.length >= 3 && value.length <= 80;
       },
-      message: "Favor informar um nome de 3 a 80 caracteres."
+      message: "Favor informar um nome de 3 a 80 caracteres.",
     },
-
   });
 
   useEffect(() => {
-    if(isEditing) {
-      productService.findById(Number(params.productId))
-        .then(response => {
-          const newFormData = forms.updateAll(formData, response.data);
-          setFormData(newFormData);
-        })
+    categoryService.findAllRequest()
+      .then(response => {
+        setCategories(response.data)
+      })
+  }, []);
+
+  useEffect(() => {
+    if (isEditing) {
+      productService.findById(Number(params.productId)).then((response) => {
+        const newFormData = forms.updateAll(formData, response.data);
+        setFormData(newFormData);
+      });
     }
   }, []);
 
   function handleInputChange(event: any) {
-    const result = forms.updateAndValidate(formData, event.target.name, event.target.value);
+    const result = forms.updateAndValidate(
+      formData,
+      event.target.name,
+      event.target.value
+    );
     setFormData(result);
   }
 
   function handleTurnDirty(name: string) {
     setFormData(forms.toDirty(formData, name));
   }
+
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
 
   return (
     <main>
@@ -89,9 +108,7 @@ export default function ProductForm() {
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
                 />
-                <div className="dsc-form-error">
-                  {formData.name.message}
-                </div>
+                <div className="dsc-form-error">{formData.name.message}</div>
               </div>
               <div>
                 <FormInput
@@ -100,9 +117,7 @@ export default function ProductForm() {
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
                 />
-                <div className="dsc-form-error">
-                  {formData.price.message}
-                </div>
+                <div className="dsc-form-error">{formData.price.message}</div>
               </div>
               <div>
                 <FormInput
@@ -110,6 +125,14 @@ export default function ProductForm() {
                   className="dsc-form-control"
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
+                />
+              </div>
+              <div>
+                <Select 
+                  options={categories} 
+                  isMulti 
+                  getOptionLabel={(obj) => obj.name}
+                  getOptionValue={(obj) => String(obj.id)}
                 />
               </div>
               <div>
