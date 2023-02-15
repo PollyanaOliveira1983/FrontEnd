@@ -11,7 +11,6 @@ import FormSelect from "../../../components/FormSelect";
 import { selectStyles } from "../../../utils/select";
 
 export default function ProductForm() {
-
   const navigate = useNavigate();
 
   const params = useParams();
@@ -30,7 +29,7 @@ export default function ProductForm() {
       validation: function (value: string) {
         return /^.{10,}$/.test(value);
       },
-      message: "A descrição deve ter pelo meos 10 caracteres."
+      message: "A descrição deve ter pelo meos 10 caracteres.",
     },
     price: {
       value: "",
@@ -41,7 +40,7 @@ export default function ProductForm() {
       validation: function (value: any) {
         return Number(value) > 0;
       },
-      message: "Favor informar um valor positivo."
+      message: "Favor informar um valor positivo.",
     },
     imgUrl: {
       value: "",
@@ -59,25 +58,24 @@ export default function ProductForm() {
       validation: function (value: string) {
         return value.length >= 3 && value.length <= 80;
       },
-      message: "Favor informar um nome de 3 a 80 caracteres."
+      message: "Favor informar um nome de 3 a 80 caracteres.",
     },
     categories: {
-      value:[],
+      value: [],
       id: "categories",
       name: "categories",
       placeholder: "Categorias",
-      validation: function(value : CategoryDTO[]) {
+      validation: function (value: CategoryDTO[]) {
         return value.length > 0;
       },
-      message: "Escolha ao menos uma categoria"
-    }
+      message: "Escolha ao menos uma categoria",
+    },
   });
 
   useEffect(() => {
-    categoryService.findAllRequest()
-      .then(response => {
-        setCategories(response.data)
-      })
+    categoryService.findAllRequest().then((response) => {
+      setCategories(response.data);
+    });
   }, []);
 
   useEffect(() => {
@@ -106,23 +104,24 @@ export default function ProductForm() {
     event.preventDefault();
 
     const formDataValidated = forms.dirtyAndValidateAll(formData);
-    if(forms.hasAnyInvalid(formDataValidated)){
+    if (forms.hasAnyInvalid(formDataValidated)) {
       setFormData(formDataValidated);
       return;
     }
 
     const requestBody = forms.toValues(formData);
-    if(isEditing ){
+    if (isEditing) {
       requestBody.id = params.productId;
     }
 
-    productService.updateRequest(requestBody)
-      .then(() => {
-        navigate("/admin/products");
-      });
+    const request = isEditing
+      ? productService.updateRequest(requestBody)
+      : productService.insertRequest(requestBody);
 
+    request.then(() => {
+      navigate("/admin/products");
+    });
   }
-
 
   return (
     <main>
@@ -158,21 +157,27 @@ export default function ProductForm() {
                 />
               </div>
               <div>
-                <FormSelect 
+                <FormSelect
                   {...formData.categories}
-                  className="dsc-form-control dsc-form-select-container" 
+                  className="dsc-form-control dsc-form-select-container"
                   styles={selectStyles}
-                  options={categories} 
+                  options={categories}
                   onChange={(obj: any) => {
-                    const newFormData = forms.updateAndValidate(formData, "categories", obj);
+                    const newFormData = forms.updateAndValidate(
+                      formData,
+                      "categories",
+                      obj
+                    );
                     setFormData(newFormData);
                   }}
                   onTurnDirty={handleTurnDirty}
-                  isMulti 
+                  isMulti
                   getOptionLabel={(obj: any) => obj.name}
                   getOptionValue={(obj: any) => String(obj.id)}
                 />
-                <div className="dsc-form-error">{formData.categories.message}</div>
+                <div className="dsc-form-error">
+                  {formData.categories.message}
+                </div>
               </div>
               <div>
                 <FormTextArea
